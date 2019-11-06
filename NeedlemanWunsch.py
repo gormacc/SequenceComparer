@@ -1,4 +1,5 @@
 from DirectionEnum import DirectionEnum as de
+from Counter import checkCounts
 
 class NeedlemanWunsch:
     #initializing scores
@@ -18,8 +19,8 @@ class NeedlemanWunsch:
 
     def solve(self, sequenceA, sequenceB):
         #remove white spaces
-        sequenceA.replace(" ", "")
-        sequenceB.replace(" ", "")
+        sequenceA = sequenceA.replace(" ", "")
+        sequenceB = sequenceB.replace(" ", "")
         #initialization
         rows = len(sequenceA) + 1
         columns = len(sequenceB) + 1
@@ -73,5 +74,4 @@ class NeedlemanWunsch:
                 newSequenceB = "-" + newSequenceB
         #print results
         print("score : " + str(scoreMatrix[rows - 1][columns - 1]))
-        print(newSequenceA)
-        print(newSequenceB)
+        checkCounts(newSequenceA, newSequenceB)
